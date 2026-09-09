@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.kidlisten.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.kidlisten.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 8
+        versionName "1.7"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(System.getenv("LISTEN_KEYSTORE") ?: "../listen.keystore")
+            storePassword "listen2026"
+            keyAlias "listen"
+            keyPassword "listen2026"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.8.0'
+}

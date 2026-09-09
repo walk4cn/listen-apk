@@ -1,0 +1,18 @@
+# ===== 绝不入库的敏感/本地文件 =====
+# 签名密钥：提交后任何人都能用它签发同名包，必须排除
+*.keystore
+# 本地 SDK 路径（含本机绝对路径）
+local.properties
+
+# ===== 构建产物 =====
+app/build/
+.gradle/
+build/
+
+# ===== 发布物（用 GitHub Release 分发，不入库） =====
+*.apk
+
+# ===== 系统/IDE =====
+.DS_Store
+*.iml
+.idea/
